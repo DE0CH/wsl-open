@@ -164,15 +164,15 @@ while getopts "ha:d:wx" Opt; do
           Error "$BashFile already adds $Exe to BROWSER, check it for problems or restart your Bash"
         else
           echo "
-          # Adding $Exe as a browser for Bash for Windows
-          if [[ \$(uname -r) =~ (m|M)icrosoft ]]; then
-            if [[ -z \$BROWSER ]]; then
-              export BROWSER=$Exe
-            else
-              export BROWSER=\$BROWSER:$Exe
-            fi
-          fi
-          " >>"$BashFile"
+# Adding $Exe as a browser for Bash for Windows
+if [[ \$(uname -r) =~ (m|M)icrosoft ]]; then
+  if [[ -z \$BROWSER ]]; then
+    export BROWSER=$Exe
+  else
+    export BROWSER=\$BROWSER:$Exe
+  fi
+fi
+" >>"$BashFile"
         fi
       fi
       ;;
